@@ -5,43 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
+        /* universal selector - not efficient*/
         * {
             box-sizing: border-box
         }
 
+        /* type selectors
+        comma means either (either h1 or h2)*/
         h1, h2 {
             color: red;
         }
 
+        /* id selector */
         #theOne {
             font-style: italic;
         }
 
+        /* class selector */
         .it {
             font-family: cursive;
         }
         
+        /* space means right inside of left, p inside article */
         article p {
             text-decoration: underline;
         }
 
+        /* . means with class, articles with class special */
         article.special {
             color: green;
         }
 
+        /* p inside parents with class special */
         .special p {
             font-weight: bold;
         }
 
+        /* p inside articles */
         article p {
             transform: rotate(3deg);
         }
 
-        /*only immediate children*/
+        /*only immediate children, p children of article, but not grandchildren*/
         article > p {
             text-transform: uppercase;
         }
 
+        /*sibling selectors*/
         /* a p that immediately follows a div */
         div + p {
             transform: rotate(180deg);
@@ -52,10 +62,13 @@
             text-shadow: 5px 5px 5px red;
         }
 
+        /* pseudo elements */
+        /* first line of elements with class special */
         .special::first-line {
             color: red;
         }
 
+        /* first letter of elements with class special */
         .special::first-letter {
             color: blue;
             text-shadow: 4px 4px 4px red;
@@ -64,14 +77,18 @@
             font-family: cursive;
         }
 
+        /* NOT - articles without class special */
         article:not(.special) {
             background-color: yellow;
         }
 
+        /* attribute selectors */
+        /* article with pcs attribute */
         article[pcs] {
             border: 3px dashed green;
         }
 
+        /* article with pcs attribute set to 5 */
         article[pcs="5"] {
             background-image: url("images/close.png"); 
         }
@@ -79,17 +96,22 @@
         /*a[href="document1.doc"], a[href="document2.doc"] {
             background-image: url("images/word.png");
         }*/
+
+        /* anchor with href attribute that contains .doc */
         a[href*=".doc"] {
             background-image: url("images/microsoft_word.png");
             background-repeat: no-repeat;
             padding-left: 40px;
         }
 
+        /* anchor with href attribute that ends with .pdf */
         a[href$=".pdf"] {
             background-image: url("images/close.png");
             background-repeat: no-repeat;
             padding-left: 40px;
         }
+
+        /* not used here href^="foo" would mean href that starts with foo */
     </style>
     <title>Document</title>
 </head>
