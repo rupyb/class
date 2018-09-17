@@ -149,5 +149,8 @@
         });
     }
 
+    // added after class
+    $('#home').click(showBlogListPage);
+
     showBlogListPage();
 }());
